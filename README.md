@@ -2,10 +2,10 @@
 
 This repository provides a Homebrew Cask for installing Etcd Workbench.
 
-Run the following commands to add the `ttdjong/etcd-workbench` tap to your Homebrew, followed by installing `Etcd Workbench`:
+Run the following commands to add the `tzfun/etcd-workbench` tap to your Homebrew, followed by installing `Etcd Workbench`:
 
 ```shell
-brew tap ttdjong/etcd-workbench
+brew tap tzfun/etcd-workbench
 brew install --cask --no-quarantine etcd-workbench
 ```
 
