@@ -14,10 +14,8 @@ jobs:
 
       - name: Fetch latest release version
         id: fetch_version
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          latest_version=$(curl -L https://api.github.com/repos/tzfun/etcd-workbench/releases/latest | jq -r ".tag_name" | cut -d '-' -f 2)
+          latest_version=$(curl -sL -I -o /dev/null -w "%{url_effective}" https://github.com/tzfun/etcd-workbench/releases/latest | xargs basename | cut -d '-' -f 2)
           if [ -z "$latest_version" ] || [ "$latest_version" == "null" ]; then
             echo "Failed to fetch latest version from GitHub API."
             exit 1
@@ -45,7 +43,6 @@ jobs:
         if: env.new_version_found == 'true'
         env:
           VERSION: ${{ env.latest_version }}
-          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         id: homebrew-releaser
 
         run: |
