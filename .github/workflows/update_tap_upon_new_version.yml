@@ -11,8 +11,6 @@ jobs:
     steps:
 
       - uses: actions/checkout@v2
-        with:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Fetch latest release version
         id: fetch_version
