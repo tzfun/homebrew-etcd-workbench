@@ -47,7 +47,7 @@ jobs:
 
         run: |
           brew tap tzfun/homebrew-etcd-workbench
-          brew bump-cask-pr --no-fork --version $VERSION --no-browse --message "Update Etcd Workbench to version $VERSION" --write-only --commit etch-workbench
+          brew bump-cask-pr --no-fork --version $VERSION --no-browse --message "Update Etcd Workbench to version $VERSION" --write-only --commit etcd-workbench
           git remote add local-other /opt/homebrew/Library/Taps/tzfun/homebrew-etcd-workbench
           git fetch local-other
           git reset --hard local-other/main
