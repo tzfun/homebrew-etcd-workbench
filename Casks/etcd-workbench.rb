@@ -1,14 +1,14 @@
 cask "etcd-workbench" do
   arch arm: "aarch64", intel: "x86_64"
 
-  version "1.1.4"
-  sha256 arm:   "578af510a50e8ff599578a3ef3f2c8d379368c56b5d60673e6512c9846383581",
-         intel: "0470889204a7116938603d6938bcbbc0087888e91e78839c438d530484613942"
+  version "1.1.6"
+  sha256 arm:   "357970d4500602611c5ce5cbf954273d48f0a99f4440d07ead9f1b5f096afa6a",
+         intel: "0b1be450f9e90c0e115f2081ca34ede74f5abacf5fbfe68c01716ae16e43ebab"
 
   url "https://github.com/tzfun/etcd-workbench/releases/download/App-#{version}/etcd-workbench-#{version}-macos-#{arch}.app.tar.gz",
       verified: "github.com/tzfun/etcd-workbench/"
   name "Etcd Workbench"
-  desc "A powerful ui client for ETCD v3. Supports SSL and SSH Tunnel connections."
+  desc "Powerful ui client for ETCD v3. Supports SSL and SSH Tunnel connections"
   homepage "https://tzfun.github.io/etcd-workbench/"
 
   depends_on macos: ">= :catalina"
