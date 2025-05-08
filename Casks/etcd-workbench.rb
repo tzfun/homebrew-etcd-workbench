@@ -8,7 +8,7 @@ cask "etcd-workbench" do
   url "https://github.com/tzfun/etcd-workbench/releases/download/App-#{version}/etcd-workbench-#{version}-macos-#{arch}.app.tar.gz",
       verified: "github.com/tzfun/etcd-workbench/"
   name "Etcd Workbench"
-  desc "A powerful ui client for ETCD v3. Provides App and Web packages. Supports SSL and SSH Tunnel connections."
+  desc "A powerful ui client for ETCD v3. Supports SSL and SSH Tunnel connections."
   homepage "https://tzfun.github.io/etcd-workbench/"
 
   depends_on macos: ">= :catalina"
