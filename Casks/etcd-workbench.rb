@@ -1,9 +1,9 @@
 cask "etcd-workbench" do
   arch arm: "aarch64", intel: "x86_64"
 
-  version "1.1.7"
-  sha256 arm:   "43474e0dd4963bf5beff8aa1280d8725b231cd8d3651f2a45c97f41f6c91606c",
-         intel: "338ac87b565f623a55e56b5a94d690171c04d4debf0ff99bda28047b59f083ac"
+  version "1.1.8"
+  sha256 arm:   "fa42250b31c53a30fdc6375ca90494a0cdf8c78aa69b6a8927b7ee16cc7b310e",
+         intel: "ef6909b897a522658d8137fe8e5c7935c2f84d1e4823f85f30269d17b2ed91e8"
 
   url "https://github.com/tzfun/etcd-workbench/releases/download/App-#{version}/etcd-workbench-#{version}-macos-#{arch}.app.tar.gz",
       verified: "github.com/tzfun/etcd-workbench/"
