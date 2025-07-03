@@ -51,7 +51,42 @@ jobs:
         id: homebrew-releaser
 
         run: |
+          echo "=== Adding tap ==="
           brew tap tzfun/homebrew-etcd-workbench
-          cd "$(brew --repository tzfun/homebrew-etcd-workbench)"
+
+          TAP_REPO=$(brew --repository tzfun/homebrew-etcd-workbench)
+          echo "Tap repository: $TAP_REPO"
+
+          echo "=== Bumping cask ==="
           brew bump-cask-pr --no-fork --version $VERSION --no-browse --message "Update Etcd Workbench to version $VERSION" --write-only --commit etcd-workbench
+
+          cd "$TAP_REPO"
+
+          # Commit the changes in tap repo
+          echo "=== Committing in tap repo ==="
+          git add Casks/etcd-workbench.rb
+          git commit -m "Update Etcd Workbench to version $VERSION"
+
+          echo "=== Commit Debug ==="
+          echo "Git status after bump:"
+          git status
+          echo "Last 5 commits:"
+          git log --oneline -5
+          echo "Staged changes:"
+          git diff --cached --name-only
+          echo "Unstaged changes:"
+          git diff --name-only
+          echo "Untracked files:"
+          git ls-files --others --exclude-standard
+          echo
+
+          cd - # Go back to original directory
+
+          git remote add local-other "$TAP_REPO"
+          git fetch local-other
+          git reset --hard local-other/main
+
+          git status
+
+          git push origin
           git push origin main
